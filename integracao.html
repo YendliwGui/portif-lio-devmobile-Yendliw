@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 400px;
+            margin: 40px auto;
+            background: #db8181;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h2 {
+            text-align:center;
+        }
+        label{
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select {
+            width: 100%px;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        .radio-grupo{
+            margin-top: 5px;
+        }
+        button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            background-color:blueviolet;
+            color:aliceblue;
+            border: none;
+            cursor: pointer;
+        }
+        #resultado{
+            margin-top: 15px;
+            padding: 10px;
+            background-color:aquamarine;
+            border-radius: 5px;
+        }
+        .erro{
+            color:chartreuse;
+        }
+        .sucesso{
+            color:cyan
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+         <h2>Atendimento</h2>
+
+        <form id="formulario">
+
+            <label>Nome:</label>
+            <input type="text" id="nome">
+
+            
+            <label>Idade:</label>
+            <input type="number" id="idade">
+            <label>Tipo de atendimentos:</label>
+            <select id="tipo">
+                <option value="">Selecione</option>
+                <option value="Tecnico">Técnico</option>
+                <option value="Administrativo">Administrativo</option>
+                <option value="suporte">suporte</option>
+            </select>
+
+            <label>Prioridades:</label>
+            <div class="radio-grupo">
+                <input type="radio" name="prioridade"> Baixa
+                <input type="radio" name="prioridade"> Média
+                <input type="radio" name="prioridade"> Alta
+            </div>
+            <br><br>
+            <button type="submit">Enviar</button>
+            
+        </form>
+
+        <div id="resultado"></div>
+
+    </div>
+
+    <script>
+        document.getElemntByid("formulario").addEventListener("submit", function(event){
+            event.preventDefault();
+
+            let nome = document.getElementById("nome").value;
+            let idade = document.getElementById("idade").value;
+            let tipo = document.getElementById("tipo").value;
+
+            let prioridadeSelecionada = document.querySelector('input[name="prioriedade"]:checked');
+            let prioridade = prioridadeSelecionada ? prioridadeSelecionada.value : "";
+
+            let resultado = document.getElementById("resultado");
+
+            if(nome === "")
+                resultado.innerHTML = "<p class='erro'>O nome é obrigatório!</p>"
+                return;
+            
+            if(idade === ""){
+                resultado.innerHTML = <p class='erro'> O nome É Obrigatorio</p>
+            }
+        });
+    </script>
+</body>
+</html>
